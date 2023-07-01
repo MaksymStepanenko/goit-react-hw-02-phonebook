@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Filter = ({ state, updateFilter }) => {
   return (
@@ -15,4 +16,9 @@ export const Filter = ({ state, updateFilter }) => {
       />
     </label>
   );
+};
+
+Filter.propTypes = {
+  state: PropTypes.string,
+  updateFilter: PropTypes.func,
 };

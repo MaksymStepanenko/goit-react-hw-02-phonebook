@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-const INITIAL_STATE = {
-  name: '',
-  number: '',
-};
+
 
 export class FormContact extends Component {
   state = {
@@ -18,10 +15,6 @@ export class FormContact extends Component {
     });
   };
 
-  reset = () => {
-    this.setState({ ...INITIAL_STATE });
-  };
-
   handleSubmit = e => {
     e.preventDefault();
 
@@ -32,6 +25,10 @@ export class FormContact extends Component {
     this.props.onAddContact(data);
 
     this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -45,6 +42,7 @@ export class FormContact extends Component {
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            value={this.state.name}
             required
           />
         </label>
@@ -57,6 +55,7 @@ export class FormContact extends Component {
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            value={this.state.number}
             required
           />
         </label>
@@ -65,4 +64,5 @@ export class FormContact extends Component {
       </form>
     );
   }
+
 }
