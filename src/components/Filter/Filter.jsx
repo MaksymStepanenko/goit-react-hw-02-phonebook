@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import css from './Filter.module.css'
 
 export const Filter = ({ state, updateFilter }) => {
   return (
-    <label>
+    <label className={css.label}>
+      Find contact by name
       <input
+        className={css.input}
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

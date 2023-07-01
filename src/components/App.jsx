@@ -3,6 +3,7 @@ import { FormContact } from './FormContact/FormContact';
 import { Filter } from './Filter/Filter';
 import { ListContacts } from './ListContacts/ListContacts';
 import { nanoid } from 'nanoid';
+import css from './App.module.css'
 
 class App extends Component {
   state = {
@@ -46,7 +47,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={css.appwrap}>
         <h2>Phonebook</h2>
         <FormContact onAddContact={this.onAddContact} />
         <h2>Contacts</h2>
