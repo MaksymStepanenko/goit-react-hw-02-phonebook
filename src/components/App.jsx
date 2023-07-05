@@ -3,7 +3,7 @@ import { FormContact } from './FormContact/FormContact';
 import { Filter } from './Filter/Filter';
 import { ListContacts } from './ListContacts/ListContacts';
 import { nanoid } from 'nanoid';
-import css from './App.module.css'
+import css from './App.module.css';
 
 class App extends Component {
   state = {
@@ -16,13 +16,19 @@ class App extends Component {
     filters: '',
   };
 
-  onAddContact = data => {
-    if (this.state.contacts.some(el => el.name === data.name)) {
-      alert(`${data.name} is already in contacts.`);
+  onAddContact = ({ name, number }) => {
+    const checkedContact = this.state.contacts.find(el => el.name === name);
+
+    if (checkedContact !== undefined) {
+      alert(`${name} is already in contacts.`);
     } else {
       this.setState(prevState => ({
         contacts: [
-          { name: data.name, number: data.number, id: nanoid() },
+          {
+            name,
+            number,
+            id: nanoid(),
+          },
           ...prevState.contacts,
         ],
       }));

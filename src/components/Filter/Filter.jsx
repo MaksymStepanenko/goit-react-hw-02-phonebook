@@ -22,6 +22,6 @@ export const Filter = ({ state, updateFilter }) => {
 };
 
 Filter.propTypes = {
-  state: PropTypes.string,
-  updateFilter: PropTypes.func,
+  state: PropTypes.string.isRequired,
+  updateFilter: PropTypes.func.isRequired,
 };

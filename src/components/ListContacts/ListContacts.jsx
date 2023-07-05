@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './ListContacts.module.css'
+import css from './ListContacts.module.css';
 
 export const ListContacts = ({ state, deleteContact }) => {
   return (
@@ -28,9 +28,12 @@ export const ListContacts = ({ state, deleteContact }) => {
 };
 
 ListContacts.propTypes = {
-  deleteContact: PropTypes.func,
-  state: PropTypes.array,
-  number: PropTypes.string,
-  id: PropTypes.string,
-  name: PropTypes.string,
+  deleteContact: PropTypes.func.isRequired,
+  state: PropTypes.arrayOf(
+    PropTypes.shape({
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ),
 };
