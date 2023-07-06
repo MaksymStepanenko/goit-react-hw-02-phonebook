@@ -19,7 +19,7 @@ class App extends Component {
   onAddContact = ({ name, number }) => {
     const checkedContact = this.state.contacts.find(el => el.name === name);
 
-    if (checkedContact !== undefined) {
+    if (checkedContact) {
       alert(`${name} is already in contacts.`);
     } else {
       this.setState(prevState => ({
